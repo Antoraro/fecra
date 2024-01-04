@@ -1,0 +1,23 @@
+import 'currency.drift';
+
+CREATE TABLE ExchangeRateEntity(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    currency_id TEXT NOT NULL,
+    timestamp INTEGER NOT NULL,
+    exchange REAL NOT NULL,
+    FOREIGN KEY(currency_id) REFERENCES CurrencyEntity(currency_key)
+) AS ExchangeRateEntity;
+
+insertExchangeRate: INSERT OR REPLACE INTO ExchangeRateEntity VALUES(
+    :id
+    ,:timestamp
+    ,:exchange
+    ,:currency_id);
+deleteAllExchangeRates: DELETE FROM ExchangeRateEntity;
+
+CREATE VIEW ExchangeRateWithCurrencyView AS
+    SELECT R.*, C.*
+    FROM ExchangeRateEntity R
+    INNER JOIN CurrencyEntity C ON R.currency_id = C.currency_key;
+
+getAllExchangeRates: SELECT * FROM ExchangeRateWithCurrencyView ORDER BY timestamp DESC;

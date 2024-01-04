@@ -1,0 +1,18 @@
+{
+  "appTitle": "fecra",
+  "currencyRates": "Currency rates",
+  "settings": "Settings",
+  "error": "Error",
+  "refreshPeriod": "Refresh period",
+  "shortenExchangeRates": "Shorten exchange rates",
+  "wipeDatabase": "Wipe database",
+  "confirm": "Confirm",
+  "cancel": "Cancel",
+  "wipeDatabaseConfirmation": "Are you sure you want to wipe the database?",
+  "seconds": "{value} seconds",
+  "@seconds": {
+    "placeholders": {
+      "value": {}
+    }
+  }
+}

@@ -1,0 +1,13 @@
+CREATE TABLE LastFetchedEntity (
+    id TEXT NOT NULL PRIMARY KEY,
+    dateString TEXT NOT NULL
+);
+
+insertLastFetchedEntry: INSERT OR REPLACE INTO LastFetchedEntity (id, dateString)
+    VALUES (:id, :dateString);
+
+getLastFetchedEntry: SELECT dateString FROM LastFetchedEntity WHERE id = :id;
+
+clearLastFetchedEntry: DELETE FROM LastFetchedEntity WHERE id = :id;
+
+clearLastFetched: DELETE FROM LastFetchedEntity;
